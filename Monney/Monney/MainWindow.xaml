@@ -1,0 +1,72 @@
+﻿<Window x:Class="Monney.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Monney"
+        mc:Ignorable="d"
+        Title="Monney" Height="400" Width="600">
+    <Border Padding="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Record -->
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+
+                <TextBlock Text="Ft" FontWeight="Bold" Margin="10 10"/>
+                <TextBlock Text="Amount of this month" Margin="10 0" HorizontalAlignment="Right"/>
+            </StackPanel>
+            <!-- Add record -->
+            <StackPanel Grid.Column="1" Background="#fdf1f1">
+                <!-- Key in Value -->
+                <TextBlock Background="#f8f8f8" TextAlignment="Right" Margin="0 0 0 10" Padding="10 2" Text="0"/>
+                <!-- Select Date -->
+                <DatePicker Margin="0 0 0 10"></DatePicker>
+                <!-- Category -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <RadioButton>Food</RadioButton>
+                        <RadioButton>House</RadioButton>
+                        <RadioButton>Transport</RadioButton>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <RadioButton>Travel</RadioButton>
+                        <RadioButton>Entertainment</RadioButton>
+                        <RadioButton>Education</RadioButton>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <RadioButton>Health</RadioButton>
+                        <RadioButton>Tax</RadioButton>
+                        <RadioButton>Other</RadioButton>
+                    </StackPanel>
+                </Grid>
+                <!-- Calculator for enter numbers -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Button></Button>
+                </Grid>
+
+            </StackPanel>
+
+        </Grid>
+    </Border>
+</Window>
