@@ -1,0 +1,82 @@
+﻿<Window x:Class="Monney.Views.EditRecordWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Monney.Views"
+        mc:Ignorable="d"
+        Title="Edit Record" Height="340" Width="220">
+    <Grid>
+        <!-- Edit record -->
+        <StackPanel Grid.Column="1" Background="#fdf1f1" Margin="0">
+            <!-- Key in Value -->
+            <TextBlock Text="Amount:" Margin="5 10 0 0" FontWeight="Black"/>
+            <TextBlock Background="White" TextAlignment="Right" Margin="5 0 5 10" Padding="10 2" Text="0"/>
+            <!-- Select Date -->
+            <TextBlock Text="Date:" Margin="5 0 0 0" FontWeight="Bold"/>
+            <DatePicker Margin="5 0 5 10"></DatePicker>
+            <!-- Category -->
+            <TextBlock Text="Category:" Margin="5 0 0 10" FontWeight="Bold"/>
+            <Grid Margin="5 0 5 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <RadioButton>Food</RadioButton>
+                    <RadioButton>House</RadioButton>
+                    <RadioButton>Transport</RadioButton>
+                    <RadioButton>Health</RadioButton>
+                    <RadioButton>Other</RadioButton>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <RadioButton>Travel</RadioButton>
+                    <RadioButton>Entertainment</RadioButton>
+                    <RadioButton>Education</RadioButton>
+                    <RadioButton>Tax</RadioButton>
+                </StackPanel>
+
+            </Grid>
+            <!-- Calculator for enter numbers -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!-- Row 1 -->
+                <Button Grid.Column="0" Grid.Row="0" Background="#f08080">Clear</Button>
+                <Button Grid.Column="3" Grid.Row="0" Background="#f08080">/</Button>
+                <!-- Row 2 -->
+                <Button Grid.Column="0" Grid.Row="1" Background="#f08080">7</Button>
+                <Button Grid.Column="1" Grid.Row="1" Background="#f08080">8</Button>
+                <Button Grid.Column="2" Grid.Row="1" Background="#f08080">9</Button>
+                <Button Grid.Column="3" Grid.Row="1" Background="#f08080">*</Button>
+                <!-- Row 3 -->
+                <Button Grid.Column="0" Grid.Row="2" Background="#f08080">4</Button>
+                <Button Grid.Column="1" Grid.Row="2" Background="#f08080">5</Button>
+                <Button Grid.Column="2" Grid.Row="2" Background="#f08080">6</Button>
+                <Button Grid.Column="3" Grid.Row="2" Background="#f08080">-</Button>
+                <!-- Row 4 -->
+                <Button Grid.Column="0" Grid.Row="3" Background="#f08080">1</Button>
+                <Button Grid.Column="1" Grid.Row="3" Background="#f08080">2</Button>
+                <Button Grid.Column="2" Grid.Row="3" Background="#f08080">3</Button>
+                <Button Grid.Column="3" Grid.Row="3" Background="#f08080">+</Button>
+                <!-- Row 5 -->
+                <Button Grid.Column="0" Grid.Row="4" Background="#f08080">.</Button>
+                <Button Grid.Column="1" Grid.Row="4" Background="#f08080">0</Button>
+                <Button Grid.Column="2" Grid.Row="4" Background="#f08080">Del</Button>
+                <Button Grid.Column="3" Grid.Row="4" Background="#f08080">OK</Button>
+            </Grid>
+
+        </StackPanel>
+    </Grid>
+</Window>

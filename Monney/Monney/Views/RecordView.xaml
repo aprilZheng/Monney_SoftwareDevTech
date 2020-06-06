@@ -1,0 +1,21 @@
+﻿<Page x:Class="Monney.Views.RecordView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Monney.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="20" d:DesignWidth="200"
+      Title="RecordView">
+
+    <Grid Background="#fffbf2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" Padding="5 0" >Category</TextBlock>
+        <TextBlock Grid.Column="1" Padding="5 0" HorizontalAlignment="Right">Ft</TextBlock>
+        <TextBlock Grid.Column="2" Padding="5 0">0</TextBlock>
+    </Grid>
+</Page>

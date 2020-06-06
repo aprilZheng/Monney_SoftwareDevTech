@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monney"
         mc:Ignorable="d"
-        Title="Monney" Height="360" Width="400">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        Title="Monney" Height="360" Width="200">
+    <Grid Background="#fdf1f1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <!-- Records -->
-        <StackPanel Grid.Column="0" Background="#fdf1f1" Margin="5">
+        <StackPanel Grid.Row="0">
             <!-- Current month spending amount-->
             <TextBlock Text="Amount of this month:" FontWeight="Bold" Margin="5 10 0 0"/>
             <Grid Margin="5 0 5 10">
@@ -20,89 +20,21 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+                <!-- Currency -->
                 <TextBlock Grid.Column="0" Text="Ft" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right" Margin="0 0 5 0"/>
+                <!-- Amount -->
                 <StackPanel Grid.Column="1" Background="White">
                     <TextBlock  FontSize="14" HorizontalAlignment="Center">0</TextBlock>
                 </StackPanel>
             </Grid>
-            <!-- Records from today -->
-            <TextBlock Background="#f08080" Padding="5 0">Today</TextBlock>
-            <TextBlock Background="#fffbf2" ></TextBlock>
-            <!-- Records from all the other days before today -->
+            
+            <!-- Button for add record -->
+            <Button Width="30" Margin="0 0 0 10" Background="#f08080" BorderBrush="Green">Add</Button>
+        </StackPanel>
+        
+        <!-- Block for displaying Records -->
+        <StackPanel Grid.Row="1">
             
         </StackPanel>
-
-        <!-- Add record -->
-        <StackPanel Grid.Column="1" Background="#fdf1f1" Margin="5">
-            <!-- Key in Value -->
-            <TextBlock Text="Amount:" Margin="5 10 0 0" FontWeight="Black"/>
-            <TextBlock Background="White" TextAlignment="Right" Margin="5 0 5 10" Padding="10 2" Text="0"/>
-            <!-- Select Date -->
-            <TextBlock Text="Date:" Margin="5 0 0 0" FontWeight="Bold"/>
-            <DatePicker Margin="5 0 5 10"></DatePicker>
-            <!-- Category -->
-            <TextBlock Text="Category:" Margin="5 0 0 10" FontWeight="Bold"/>
-            <Grid Margin="5 0 5 10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="0">
-                    <RadioButton>Food</RadioButton>
-                    <RadioButton>House</RadioButton>
-                    <RadioButton>Transport</RadioButton>
-                    <RadioButton>Health</RadioButton>
-                    <RadioButton>Other</RadioButton>
-                </StackPanel>
-                <StackPanel Grid.Column="1">
-                    <RadioButton>Travel</RadioButton>
-                    <RadioButton>Entertainment</RadioButton>
-                    <RadioButton>Education</RadioButton>
-                    <RadioButton>Tax</RadioButton>
-                </StackPanel>
-
-            </Grid>
-            <!-- Calculator for enter numbers -->
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <!-- Row 1 -->
-                <Button Grid.Column="0" Grid.Row="0" Background="#f08080">Clear</Button>
-                <Button Grid.Column="3" Grid.Row="0" Background="#f08080">/</Button>
-                <!-- Row 2 -->
-                <Button Grid.Column="0" Grid.Row="1" Background="#f08080">7</Button>
-                <Button Grid.Column="1" Grid.Row="1" Background="#f08080">8</Button>
-                <Button Grid.Column="2" Grid.Row="1" Background="#f08080">9</Button>
-                <Button Grid.Column="3" Grid.Row="1" Background="#f08080">*</Button>
-                <!-- Row 3 -->
-                <Button Grid.Column="0" Grid.Row="2" Background="#f08080">4</Button>
-                <Button Grid.Column="1" Grid.Row="2" Background="#f08080">5</Button>
-                <Button Grid.Column="2" Grid.Row="2" Background="#f08080">6</Button>
-                <Button Grid.Column="3" Grid.Row="2" Background="#f08080">-</Button>
-                <!-- Row 4 -->
-                <Button Grid.Column="0" Grid.Row="3" Background="#f08080">1</Button>
-                <Button Grid.Column="1" Grid.Row="3" Background="#f08080">2</Button>
-                <Button Grid.Column="2" Grid.Row="3" Background="#f08080">3</Button>
-                <Button Grid.Column="3" Grid.Row="3" Background="#f08080">+</Button>
-                <!-- Row 5 -->
-                <Button Grid.Column="0" Grid.Row="4" Background="#f08080">.</Button>
-                <Button Grid.Column="1" Grid.Row="4" Background="#f08080">0</Button>
-                <Button Grid.Column="2" Grid.Row="4" Background="#f08080">Del</Button>
-                <Button Grid.Column="3" Grid.Row="4" Background="#f08080">OK</Button>
-            </Grid>
-
-        </StackPanel>
-
     </Grid>
 </Window>
