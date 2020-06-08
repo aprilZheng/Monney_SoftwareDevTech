@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Monney.Models
 {
-    class Record:INotifyPropertyChanged
+    public class Record:INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private void TriggerPropertyChanged(string name)
@@ -15,20 +15,20 @@ namespace Monney.Models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
-        private int spendingAmount;
+        private int amount;
         private Category category;
-        private DateTime? spendingDate;
-        private string spendingDateText;
+        private DateTime? date;
+        private string dateText;
 
-        public int SpendingAmount
+        public int Amount
         {
-            get => spendingAmount;
+            get => amount;
             set
             {
-                if (spendingAmount != value)
+                if (amount != value)
                 {
-                    spendingAmount = value;
-                    TriggerPropertyChanged("SpendingAmount");
+                    amount = value;
+                    TriggerPropertyChanged("Amount");
                 }
             }
         }
@@ -46,33 +46,33 @@ namespace Monney.Models
             }
         }
 
-        public DateTime? SpendingDate
+        public DateTime? Date
         {
-            get => spendingDate;
+            get => date;
             set
             {
-                spendingDate = value;
-                if (spendingDate == null)
+                date = value;
+                if (date == null)
                 {
-                    SpendingDateText = null;
+                    DateText = null;
                 }
                 else
                 {
-                    DateTime nonNullable = (DateTime)spendingDate;
-                    SpendingDateText = nonNullable.ToString("yyy-MM-dd");
+                    DateTime nonNullable = (DateTime)date;
+                    DateText = nonNullable.ToString("yyyy-MM-dd");
                 }
             }
         }
 
-        public string SpendingDateText
+        public string DateText
         {
-            get => spendingDateText;
+            get => dateText;
             set
             {
-                if (spendingDateText != value)
+                if (dateText != value)
                 {
-                    spendingDateText = value;
-                    TriggerPropertyChanged("SpendingDateText");
+                    dateText = value;
+                    TriggerPropertyChanged("DateText");
                 }
             }
         }

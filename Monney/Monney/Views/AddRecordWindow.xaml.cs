@@ -1,5 +1,4 @@
-﻿using Monney.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,32 +15,15 @@ using System.Windows.Shapes;
 namespace Monney.Views
 {
     /// <summary>
-    /// Interaction logic for EditRecordWindow.xaml
+    /// Interaction logic for AddRecordWindow.xaml
     /// </summary>
-    public partial class EditRecordWindow : Window
+    public partial class AddRecordWindow : Window
     {
-        public Record Record { get; }
-        public DateTime? OriginalDate { get; }
-
-        public EditRecordWindow(Record recordIn)
+        public AddRecordWindow()
         {
-            Record = recordIn;
-            DataContext = Record;
-            OriginalDate = Record.Date;
-            BuildCategoryList();
             InitializeComponent();
         }
-        private void BuildCategoryList()
-        {
-            foreach(Category category in Enum.GetValues(typeof(Category)))
-            {
-                string title = category.ToString().ToLower();
-                title = title[0].ToString().ToUpper()+title.Substring(1);
 
-                ComboBoxItem item = new ComboBoxItem { Tag = category, Content = title };
-
-            }
-        }
         //Calculate part
         long number1 = 0;
         long number2 = 0;

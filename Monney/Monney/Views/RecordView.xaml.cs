@@ -20,14 +20,13 @@ namespace Monney.Views
     /// <summary>
     /// Interaction logic for RecordView.xaml
     /// </summary>
-    public partial class RecordView : UserControl
+    public partial class RecordView : Page
     {
         public Record Record { get; set; }
 
         public RecordView(Record record)
         {
-            Record = record;
-            DataContext = Record;
+            
             InitializeComponent();
         }
     }

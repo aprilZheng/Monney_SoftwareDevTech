@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:Monney.Views"
       mc:Ignorable="d" 
       d:DesignHeight="20" d:DesignWidth="200"
-      Title="RecordView">
+      Title="RecordView"
+      >
 
     <Grid Background="#fffbf2">
         <Grid.ColumnDefinitions>

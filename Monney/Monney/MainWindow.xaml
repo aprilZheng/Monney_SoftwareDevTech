@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monney"
         mc:Ignorable="d"
-        Title="Monney" Height="360" Width="200">
+        Title="Monney" Height="380" Width="240" ResizeMode="NoResize" Icon="icon.png" WindowStartupLocation="CenterScreen">
     <Grid Background="#fdf1f1">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
@@ -29,7 +29,7 @@
             </Grid>
             
             <!-- Button for add record -->
-            <Button Width="30" Margin="0 0 0 10" Background="#f08080" BorderBrush="Green">Add</Button>
+            <Button Width="30" Margin="0 0 0 10" Background="#f08080" BorderBrush="Green" Click="AddBtnClick">Add</Button>
         </StackPanel>
         
         <!-- Block for displaying Records -->
