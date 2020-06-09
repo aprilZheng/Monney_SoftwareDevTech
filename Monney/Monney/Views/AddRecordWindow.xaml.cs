@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Monney.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,37 @@ namespace Monney.Views
     /// </summary>
     public partial class AddRecordWindow : Window
     {
-        public AddRecordWindow()
+        public Record Record { get; }
+        public DateTime? OriginalDate { get; }
+
+        public AddRecordWindow(Record recordIn)
         {
             InitializeComponent();
+
+            Record = recordIn;
+            DataContext = Record;
+            OriginalDate = Record.Date;
+            BuildCategoryList();
+        }
+        private void BuildCategoryList()
+        {
+            foreach(Category category in Enum.GetValues(typeof(Category)))
+            {
+                string title = category.ToString().ToLower();
+                title = title[0].ToString().ToUpper() + title.Substring(1);
+
+                ComboBoxItem item = new ComboBoxItem
+                {
+                    Tag = category,
+                    Content = title
+                };
+                CategoryInput.Items.Add(item);
+
+                if (Record.Category == category)
+                {
+                    CategoryInput.SelectedItem = item;
+                }
+            }
         }
 
         //Calculate part

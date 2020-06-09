@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Monney.Models;
 using Monney.Views;
 
 namespace Monney
@@ -21,6 +22,7 @@ namespace Monney
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Record Record { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace Monney
 
         //click "Add" button show "AddRecordWindow"
         private void AddBtnClick(object sender, RoutedEventArgs e) {
-            AddRecordWindow window=new AddRecordWindow();
+            AddRecordWindow window=new AddRecordWindow(Record);
             window.ShowDialog();
         }
             

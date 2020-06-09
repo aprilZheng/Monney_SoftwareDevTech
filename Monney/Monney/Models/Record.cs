@@ -15,7 +15,7 @@ namespace Monney.Models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
-        private int amount;
+        private int amount=0;
         private Category category;
         private DateTime? date;
         private string dateText;

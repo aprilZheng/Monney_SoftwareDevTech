@@ -16,7 +16,8 @@
             <TextBlock Text="Date:" Margin="5 0 0 0" FontWeight="Bold"/>
             <DatePicker Margin="5 0 5 10"></DatePicker>
             <!-- Category -->
-            <TextBlock Text="Category:" Margin="5 0 0 10" FontWeight="Bold"/>
+            <TextBlock Text="Category:" Margin="5 0 0 0" FontWeight="Bold"/>
+            <ComboBox x:Name="CategoryInput" Margin="5 0 5 10"></ComboBox>
             <Grid Margin="5 0 5 10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
