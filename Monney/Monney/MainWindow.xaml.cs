@@ -22,7 +22,7 @@ namespace Monney
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Record Record { get; set; }
+        public Records records { get; }
         public MainWindow()
         {
             InitializeComponent();
@@ -30,8 +30,9 @@ namespace Monney
 
         //click "Add" button show "AddRecordWindow"
         private void AddBtnClick(object sender, RoutedEventArgs e) {
-            AddRecordWindow window=new AddRecordWindow(Record);
+            AddRecordWindow window=new AddRecordWindow();
             window.ShowDialog();
+            //RecordsContainer.Children.Add()
         }
             
     }

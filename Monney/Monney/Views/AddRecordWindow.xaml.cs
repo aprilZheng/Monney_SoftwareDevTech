@@ -20,18 +20,48 @@ namespace Monney.Views
     /// </summary>
     public partial class AddRecordWindow : Window
     {
-        public Record Record { get; }
-        public DateTime? OriginalDate { get; }
 
-        public AddRecordWindow(Record recordIn)
+        Record record = new Record();
+
+        public AddRecordWindow()
         {
             InitializeComponent();
 
-            Record = recordIn;
-            DataContext = Record;
-            OriginalDate = Record.Date;
+            
             BuildCategoryList();
         }
+        //return key in value to new record
+        private void Ok_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            record.Category = ProcessCategory();
+            record.Amount = int.Parse(AmountDisplay.Text);
+            record.Date = DatePicker.SelectedDate;
+            record.DateText = ProcessDateText();
+
+            Close();
+        }
+        //dateText
+        private string ProcessDateText()
+        {
+            DateTime? selDate = DatePicker.SelectedDate;
+            if (selDate.HasValue)
+            {
+                string formatted = selDate.Value.ToString("yyyy-MM-dd");
+                return formatted;
+            }
+            return null;
+        }
+        //category
+        private Category ProcessCategory()
+        {
+            ComboBoxItem selItem = (ComboBoxItem)CategoryInput.SelectedItem;
+            Category tagValue = (Category)selItem.Tag;
+            return tagValue;
+        }
+
+        /// <summary>
+        /// Build Category List
+        /// </summary>
         private void BuildCategoryList()
         {
             foreach(Category category in Enum.GetValues(typeof(Category)))
@@ -46,7 +76,7 @@ namespace Monney.Views
                 };
                 CategoryInput.Items.Add(item);
 
-                if (Record.Category == category)
+                if (record.Category == category)
                 {
                     CategoryInput.SelectedItem = item;
                 }
@@ -124,9 +154,5 @@ namespace Monney.Views
             AmountDisplay.Text = "0";
         }
 
-        private void Ok_Btn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

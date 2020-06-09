@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Record.cs" />
+    <Compile Include="Models\Records.cs" />
     <Compile Include="Views\AddRecordWindow.xaml.cs">
       <DependentUpon>AddRecordWindow.xaml</DependentUpon>
     </Compile>

@@ -10,12 +10,12 @@ namespace Monney.Models
     public class Record:INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private void TriggerPropertyChanged(string name)
+        protected void TriggerPropertyChanged(string name)//name is property name
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
-        private int amount=0;
+        private int amount;
         private Category category;
         private DateTime? date;
         private string dateText;

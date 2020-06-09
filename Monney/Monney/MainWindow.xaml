@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monney"
+        xmlns:views="clr-namespace:Monney.Views"
         mc:Ignorable="d"
         Title="Monney" Height="380" Width="240" ResizeMode="NoResize" Icon="icon.png" WindowStartupLocation="CenterScreen">
     <Grid Background="#fdf1f1">
@@ -33,8 +34,10 @@
         </StackPanel>
         
         <!-- Block for displaying Records -->
-        <StackPanel Grid.Row="1">
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel x:Name="RecordsContainer">
             
-        </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>
