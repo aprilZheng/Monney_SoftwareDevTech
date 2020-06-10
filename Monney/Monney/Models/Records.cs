@@ -9,10 +9,12 @@ namespace Monney.Models
     public class Records
     {
         public List<Record> records { get; }
-
+        
         public Records()
         {
             records = new List<Record>();
         }
+
+
     }
 }

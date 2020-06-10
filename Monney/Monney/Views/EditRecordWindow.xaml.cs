@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Monney;
 
 namespace Monney.Views
 {
@@ -23,25 +24,81 @@ namespace Monney.Views
         public Record Record { get; }
         public DateTime? OriginalDate { get; }
 
+        /// <summary>
+        /// Window constructor, with an input parameter
+        /// </summary>
+        /// <param name="recordIn"></param>
         public EditRecordWindow(Record recordIn)
         {
+            InitializeComponent();
+
+            //sharing data
             Record = recordIn;
             DataContext = Record;
+
             OriginalDate = Record.Date;
+
+            //build category list
             BuildCategoryList();
-            InitializeComponent();
         }
+        
+        /// <summary>
+        /// Ok button for submitting value changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Ok_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Record.Category = ProcessCategory();
+            Record.Amount = int.Parse(AmountDisplay.Text);
+
+            Close();
+        }
+
+        /// <summary>
+        /// Cancle button, not making any changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Cancle_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Record.Date = OriginalDate;
+            Close();
+        }
+
+        //method for build category list in ComboBox
         private void BuildCategoryList()
         {
-            foreach(Category category in Enum.GetValues(typeof(Category)))
+            //get every value from Category enum class
+            foreach (Category category in Enum.GetValues(typeof(Category)))
             {
                 string title = category.ToString().ToLower();
-                title = title[0].ToString().ToUpper()+title.Substring(1);
+                title = title[0].ToString().ToUpper() + title.Substring(1);
 
-                ComboBoxItem item = new ComboBoxItem { Tag = category, Content = title };
-
+                //new combox item and set properties
+                ComboBoxItem item = new ComboBoxItem
+                {
+                    Tag = category,
+                    Content = title
+                };
+                //add combox item to frontend
+                CategoryInput.Items.Add(item);
+                //set default value is the first value of Category
+                if (Record.Category == category)
+                {
+                    CategoryInput.SelectedItem = item;
+                }
             }
         }
+
+        //method for getting category
+        private Category ProcessCategory()
+        {
+            ComboBoxItem selItem = (ComboBoxItem)CategoryInput.SelectedItem;
+            Category tagValue = (Category)selItem.Tag;
+            return tagValue;
+        }
+
         //Calculate part
         long number1 = 0;
         long number2 = 0;
@@ -108,14 +165,19 @@ namespace Monney.Views
 
         private void Clear_Btn_Click(object sender, RoutedEventArgs e)
         {
+            ClearAll();
+        }
+
+        //method for clear all key in values
+        public void ClearAll()
+        {
             number1 = number2 = 0;
             operation = "";
             AmountDisplay.Text = "0";
+            CategoryInput.SelectedIndex = 0;
+            DatePicker.Value = null;
         }
 
-        private void Ok_Btn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
+
 }

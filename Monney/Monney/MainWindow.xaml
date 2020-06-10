@@ -6,16 +6,24 @@
         xmlns:local="clr-namespace:Monney"
         xmlns:views="clr-namespace:Monney.Views"
         mc:Ignorable="d"
-        Title="Monney" Height="380" Width="240" ResizeMode="NoResize" Icon="icon.png" WindowStartupLocation="CenterScreen">
-    <Grid Background="#fdf1f1">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+        Title="Monney" Height="370" Width="500" ResizeMode="NoResize" Icon="icon02.png" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        
         <!-- Records -->
-        <StackPanel Grid.Row="0">
+        <Border Grid.Column="0" BorderBrush="#f08080" BorderThickness="1" CornerRadius="5"/>
+        <Grid Background="#fdf1f1" Margin="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
             <!-- Current month spending amount-->
-            <TextBlock Text="Amount of this month:" FontWeight="Bold" Margin="5 10 0 0"/>
+            <StackPanel Grid.Row="0">
+            <TextBlock Text="Spending Amount:" FontWeight="Bold" Margin="5"/>
             <Grid Margin="5 0 5 10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -25,19 +33,77 @@
                 <TextBlock Grid.Column="0" Text="Ft" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right" Margin="0 0 5 0"/>
                 <!-- Amount -->
                 <StackPanel Grid.Column="1" Background="White">
-                    <TextBlock  FontSize="14" HorizontalAlignment="Center">0</TextBlock>
+                        <TextBlock x:Name="AmountOfCurrentRecords" FontSize="14" HorizontalAlignment="Center" Text="{Binding AmountOfCurrentRecords}"></TextBlock>
                 </StackPanel>
             </Grid>
-            
-            <!-- Button for add record -->
-            <Button Width="30" Margin="0 0 0 10" Background="#f08080" BorderBrush="Green" Click="AddBtnClick">Add</Button>
+                <Button Background="#f08080" Width="50" Click="Update_Btn_Click">Update</Button>
         </StackPanel>
-        
         <!-- Block for displaying Records -->
-        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+        <ScrollViewer Grid.Row="1"  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
             <StackPanel x:Name="RecordsContainer">
-            
             </StackPanel>
         </ScrollViewer>
+    </Grid>
+        <Border Grid.Column="1" BorderBrush="#f08080" BorderThickness="1" CornerRadius="5"/>
+        <Grid Grid.Column="1" Margin="2">
+            <StackPanel Background="#fdf1f1">
+                <!-- Key in Value -->
+                <TextBlock Text="Amount:" Margin="5 10 0 0" FontWeight="Black"/>
+                <TextBlock x:Name="AmountDisplay" Background="White" TextAlignment="Right" Margin="5 0 5 10" Padding="10 2" Text="{Binding Amount}"></TextBlock>
+                <!-- Select Date -->
+                <TextBlock Text="Date:" Margin="5 0 0 0" FontWeight="Bold"/>
+                <DatePicker x:Name="DatePicker" Margin="5 0 5 10"></DatePicker>
+                <!-- Category -->
+                <TextBlock Text="Category:" Margin="5 0 0 10" FontWeight="Bold"/>
+                <ComboBox x:Name="CategoryInput" Margin="5 0 5 10"></ComboBox>
+                <Grid Margin="5 0 5 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                
+                </Grid>
+                <!-- Calculator for enter numbers -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!-- Row 1 -->
+                    <Button Padding="5" Grid.Column="0" Grid.Row="0" Background="#f08080" x:Name="ClearBtn" Click="Clear_Btn_Click">Clear</Button>
+                    <Button Padding="5" Grid.Column="3" Grid.Row="0" Background="#f08080" x:Name="DivideBtn" Click="Math_Btn_Click">/</Button>
+                    <!-- RowPadding="5"  2 -->
+                    <Button Padding="5" Grid.Column="0" Grid.Row="1" Background="#f08080" x:Name="Btn7" Click="Num_Btn_Click">7</Button>
+                    <Button Padding="5" Grid.Column="1" Grid.Row="1" Background="#f08080" x:Name="Btn8" Click="Num_Btn_Click">8</Button>
+                    <Button Padding="5" Grid.Column="2" Grid.Row="1" Background="#f08080" x:Name="Btn9" Click="Num_Btn_Click">9</Button>
+                    <Button Padding="5" Grid.Column="3" Grid.Row="1" Background="#f08080" x:Name="TimesBtn" Click="Math_Btn_Click">*</Button>
+                    <!-- RowPadding="5"  3 -->
+                    <Button Padding="5" Grid.Column="0" Grid.Row="2" Background="#f08080" x:Name="Btn4" Click="Num_Btn_Click">4</Button>
+                    <Button Padding="5" Grid.Column="1" Grid.Row="2" Background="#f08080" x:Name="Btn5" Click="Num_Btn_Click">5</Button>
+                    <Button Padding="5" Grid.Column="2" Grid.Row="2" Background="#f08080" x:Name="Btn6" Click="Num_Btn_Click">6</Button>
+                    <Button Padding="5" Grid.Column="3" Grid.Row="2" Background="#f08080" x:Name="MinusBtn" Click="Math_Btn_Click">-</Button>
+                    <!-- RowPadding="5"  4 -->
+                    <Button Padding="5" Grid.Column="0" Grid.Row="3" Background="#f08080" x:Name="Btn1" Click="Num_Btn_Click">1</Button>
+                    <Button Padding="5" Grid.Column="1" Grid.Row="3" Background="#f08080" x:Name="Btn2" Click="Num_Btn_Click">2</Button>
+                    <Button Padding="5" Grid.Column="2" Grid.Row="3" Background="#f08080" x:Name="Btn3" Click="Num_Btn_Click">3</Button>
+                    <Button Padding="5" Grid.Column="3" Grid.Row="3" Background="#f08080" x:Name="PlusBtn" Click="Math_Btn_Click">+</Button>
+                    <!-- RowPadding="5"  5 -->
+                    <Button Padding="5" Grid.Column="0" Grid.Row="4" Background="#f08080" x:Name="AddBtn" Click="Add_Btn_Click">Add</Button>
+                    <Button Padding="5" Grid.Column="1" Grid.Row="4" Background="#f08080" x:Name="Btn0" Click="Num_Btn_Click">0</Button>
+                    <Button Padding="5" Grid.Column="2" Grid.Row="4" Background="#f08080" x:Name="DeleteBtn" Click="Del_Btn_Click">Del</Button>
+                    <Button Padding="5" Grid.Column="3" Grid.Row="4" Background="#f08080" x:Name="EqualBtn" Click="Equal_Btn_Click">=</Button>
+                </Grid>
+
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

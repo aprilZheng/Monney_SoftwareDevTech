@@ -23,14 +23,29 @@ namespace Monney.Views
     /// </summary>
     public partial class RecordView : UserControl
     {
-        public Record Record { get; set; }
+        public Record Record { get; }
 
+        /// <summary>
+        /// View constructor with input parameter
+        /// </summary>
+        /// <param name="record"></param>
         public RecordView(Record record)
         {
             Record = record;
             DataContext = Record;
 
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Edit button for editing, show edit window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Edit_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            EditRecordWindow window = new EditRecordWindow(Record);
+            window.ShowDialog();
         }
     }
 }
