@@ -1,7 +1,7 @@
 # Monney_SoftwareDevTech
 C# WPF Budget App
 
-[Agile Method](https://trello.com/b/TyPdoTdi)
+Using [Agile Method](https://trello.com/b/TyPdoTdi)
 
 - Operating system: Windows
 - Language:C#
